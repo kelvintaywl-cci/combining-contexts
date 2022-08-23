@@ -1,0 +1,18 @@
+version: 2.1
+
+jobs:
+  build:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - run: |
+          printenv FOO
+
+workflows:
+  main:
+    jobs:
+      - build:
+          context:
+            - foo-1
+            - foo-2
+            - foo-3
