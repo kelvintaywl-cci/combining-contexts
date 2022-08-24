@@ -3,7 +3,9 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: cimg/base:stable
+      - image: cimg/node:16.13-browsers
+        entrypoint: /docker-entrypoint.sh
+    resource_class: small
     steps:
       - run: |
           printenv FOO
